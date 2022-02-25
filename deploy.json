@@ -1,0 +1,37 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "foyer-api",
+    "namespace": "foyer-api"
+  },
+  "spec": {
+    "replicas": 3,
+    "selector": {
+      "matchLabels": {
+        "app": "foyer-api"
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "foyer-api"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "foyer-api",
+              "imagePullPolicy": "Always",
+              "name": "foyer-api",
+              "ports": [
+                {
+                  "containerPort": 80
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
